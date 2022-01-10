@@ -7,13 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormatToolbarComponent } from './format-toolbar/format-toolbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SwitchModeComponent } from './switch-mode/switch-mode.component';
+import { StyleToolbarComponent } from './style-toolbar/style-toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormatToolbarComponent,
     FooterComponent,
-    SwitchModeComponent
+    SwitchModeComponent,
+    StyleToolbarComponent
   ],
   imports: [
     BrowserModule,

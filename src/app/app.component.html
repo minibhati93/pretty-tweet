@@ -2,6 +2,7 @@
   <app-format-toolbar
     (format)="format($event)"
     ></app-format-toolbar>
+  <app-style-toolbar></app-style-toolbar>
   <div class="bg-green-50 m-2 selection:bg-green-900 selection:text-green-100">
     <textarea name="content" class="bg-green-50 w-full h-full"
       [ngClass]="contentLength <= 0 ? 'text-red-700': 'text-stone-900'"
