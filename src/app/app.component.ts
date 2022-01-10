@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { toUnicodeVariant } from './unicodeVariant';
 
@@ -10,38 +10,21 @@ import { toUnicodeVariant } from './unicodeVariant';
 export class AppComponent {
 
   content: string = '';
-  result: string = '';
+  contentLength = 280;
 
-  constructor(private clipboard: Clipboard) {}
+  constructor(private clipboard: Clipboard,
+    private el: ElementRef) {}
 
   copyText() {
     this.clipboard.copy(this.content);
   }
 
-  format(variant: string) {
+  format(variant: string, flag: string = '') {
     const word: string | null = this.getSelectedText();
     let formatWord;
     if (typeof word === "string") {
-      formatWord = toUnicodeVariant(word, variant, '');
+      formatWord = toUnicodeVariant(word, variant, flag);
       this.content = this.content.replace(word, formatWord);
-    }
-  }
-
-  boldWord(): void {
-    const word: string | null = this.getSelectedText();
-    let boldWord;
-    if (typeof word === "string") {
-      boldWord = toUnicodeVariant(word, 'bold', '');
-      this.content = this.content.replace(word, boldWord);
-    }
-  }
-
-  italicWord() {
-    const word: string | null = this.getSelectedText();
-    let italicWord;
-    if (typeof word === "string") {
-      italicWord = toUnicodeVariant(word, 'italic', '');
-      this.content = this.content.replace(word, italicWord);
     }
   }
 
@@ -51,5 +34,12 @@ export class AppComponent {
       return range?.toString() || null;
     }
     return null;
+  }
+
+  updateWordCount() {
+    this.contentLength = 280 - this.content.length;
+    if (this.contentLength <= 0) {
+      this.contentLength = 0;
+    }
   }
 }
