@@ -19,11 +19,11 @@ export class AppComponent {
     this.clipboard.copy(this.content);
   }
 
-  format(variant: string, flag: string = '') {
+  format(variant: string) {
     const word: string | null = this.getSelectedText();
     let formatWord;
     if (typeof word === "string") {
-      formatWord = toUnicodeVariant(word, variant, flag);
+      formatWord = toUnicodeVariant(word, variant, '');
       this.content = this.content.replace(word, formatWord);
     }
   }

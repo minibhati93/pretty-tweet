@@ -1,26 +1,7 @@
-<div class="flex flex-col m-4 p-4 shadow-md rounded">
-  <div class="flex flex-wrap">
-    <button (click)="format('bold')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Bold</button>
-    <button (click)="format('bold sans')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Bold Sans</button>
-    <button (click)="format('bold italic')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Bold Italic</button>
-    <button (click)="format('bold italic sans')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Bold Italic Sans</button>
-    <button (click)="format('italic')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Italic</button>
-    <button (click)="format('italic sans')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Italic Sans</button>
-    <button (click)="format('monospace')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">MonoSpace</button>
-    <button (click)="format('gothic')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Gothic</button>
-    <button (click)="format('gothic bold')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Gothic Bold</button>
-    <button (click)="format('doublestruck')"
-      class="px-4 py-1 mx-1 my-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">Doublestruck</button>
-  </div>
+<div class="flex flex-col m-4 p-4 shadow-md rounded border-solid border-2 border-slate-200">
+  <app-format-toolbar
+    (format)="format($event)"
+    ></app-format-toolbar>
   <div class="bg-green-50 m-2 selection:bg-green-900 selection:text-green-100">
     <textarea name="content" class="bg-green-50 w-full h-full"
       [ngClass]="contentLength <= 0 ? 'text-red-700': 'text-stone-900'"
@@ -41,9 +22,9 @@
         class="px-4 py-1 mx-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
         Copy to Clipboard
         </button>
-      <button (click)="copyText()"
+      <!-- <button (click)="copyText()"
         class="px-4 py-1 mx-1 text-sm text-green-600 font-semibold rounded border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
-        Tweet</button>
+        Tweet</button> -->
     </div>
   </div>
 </div>
